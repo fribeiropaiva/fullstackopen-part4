@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon",
     "ling": "eslint .",
-    "test": "jest --verbose"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,16 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
     "mongoose": "^6.0.14"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^8.4.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
-    "jest": "^27.4.3"
+    "jest": "^27.4.3",
+    "supertest": "^6.1.6"
   },
   "Jest": {
     "testEnvironment": "node"
